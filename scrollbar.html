@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	
+	<title>BBCode Editor</title>
+	
+	<link rel="stylesheet" href="jquery.rScrollbar.css" />
+	
+	<style>
+		html, body {
+			height: 100%;
+		}
+
+		.scroll-track-v,
+		.scroll-track-v__inner {
+			width: 16px;
+			background: url('../img/track-v.png') no-repeat;
+		}
+
+		.scroll-track-v {
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			background-position: 0 0;
+		}
+
+		.scroll-track-v__inner {
+			position: absolute;
+			left: 0;
+			top: 5px;
+			bottom: 0;
+			background-position: -16px 100%;
+		}
+
+		.scroll-bar-v,
+		.scroll-bar-v__inner {
+			width: 16px;
+			background: url('../img/bar-v.png') no-repeat;
+		}
+
+		.scroll-bar-v {
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			background-position: 0 0;
+		}
+
+		.rScrollbar__bar-v.hover .scroll-bar-v,
+		.rScrollbar__bar-v.active .scroll-bar-v {
+			background-position: -32px 0;
+		}
+
+		.scroll-bar-v__inner {
+			position: absolute;
+			left: 0;
+			top: 8px;
+			bottom: 0;
+			background-position: -16px 100%;
+		}
+
+		.rScrollbar__bar-v.hover .scroll-bar-v__inner,
+		.rScrollbar__bar-v.active .scroll-bar-v__inner {
+			background-position: -48px 100%;
+		}
+
+		.rScrollbar__button-up-v,
+		.rScrollbar__button-down-v {
+			width: 16px;
+			height: 11px;
+			background: url('../img/button-v.png') no-repeat;
+		}
+
+		.rScrollbar__button-up-v {
+			background-position: 0 0;
+		}
+
+		.rScrollbar__button-up-v.hover,
+		.rScrollbar__button-up-v.active {
+			background-position: 100% 0;
+		}
+
+		.rScrollbar__button-down-v {
+			background-position: 0 100%;
+		}
+
+		.rScrollbar__button-down-v.hover,
+		.rScrollbar__button-down-v.active {
+			background-position: 100% 100%;
+		}
+
+		.scroll-track-h,
+		.scroll-track-h__inner {
+			height: 16px;
+			background: url('../img/track-h.png') no-repeat;
+		}
+
+		.scroll-track-h {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			background-position: 0 0;
+		}
+
+		.scroll-track-h__inner {
+			margin-left: 5px;
+			background-position: 100% -16px;
+		}
+
+		.scroll-bar-h,
+		.scroll-bar-h__inner {
+			height: 16px;
+			background: url('../img/bar-h.png') no-repeat;
+		}
+
+		.scroll-bar-h {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			background-position: 0 0;
+		}
+
+		.rScrollbar__bar-h.hover .scroll-bar-h,
+		.rScrollbar__bar-h.active .scroll-bar-h {
+			background-position: 0 -32px;
+		}
+
+		.scroll-bar-h__inner {
+			margin-left: 8px;
+			background-position: 100% -16px;
+		}
+
+		.rScrollbar__bar-h.hover .scroll-bar-h__inner,
+		.rScrollbar__bar-h.active .scroll-bar-h__inner {
+			background-position: 100% -48px;
+		}
+
+		.rScrollbar__button-up-h,
+		.rScrollbar__button-down-h {
+			width: 11px;
+			height: 16px;
+			background: url('../img/button-h.png') no-repeat;
+		}
+
+		.rScrollbar__button-up-h {
+			background-position: 0 0;
+		}
+
+		.rScrollbar__button-up-h.hover,
+		.rScrollbar__button-up-h.active {
+			background-position: 0 100%;
+		}
+
+		.rScrollbar__button-down-h {
+			background-position: 100% 0;
+		}
+
+		.rScrollbar__button-down-h.hover,
+		.rScrollbar__button-down-h.active {
+			background-position: 100% 100%;
+		}
+
+		.scrollTest {
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			overflow: auto;
+			width: 30%;
+			height: 50%;
+		}
+	</style>
+	
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery.rScrollbar.js"></script>
+	
+	<script>
+		$(function() {
+			$('.scrollTest').rScrollbar({
+				trackV: {
+					buttonSpacer: 0,
+
+					trackHTML: '<div class="scroll-track-v"><div class="scroll-track-v__inner"></div></div>',
+					barHTML: '<div class="scroll-bar-v"><div class="scroll-bar-v__inner"></div></div>'
+				},
+
+				trackH: {
+					buttonSpacer: 0,
+
+					trackHTML: '<div class="scroll-track-h"><div class="scroll-track-h__inner"></div></div>',
+					barHTML: '<div class="scroll-bar-h"><div class="scroll-bar-h__inner"></div></div>'
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	
+	<div class="scrollTest" onclick="$(this).scrollLeft(300)">
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam totam dolorum ad cupiditate maiores atque ratione culpa sequi consectetur voluptatibus animi tempora beatae accusantium soluta molestias asperiores tenetur cum. Non.
+		</p>
+		
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam totam dolorum ad cupiditate maiores atque ratione culpa sequi consectetur voluptatibus animi tempora beatae accusantium soluta molestias asperiores tenetur cum. Non.
+		</p>
+		
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam totam dolorum ad cupiditate maiores atque ratione culpa sequi consectetur voluptatibus animi tempora beatae accusantium soluta molestias asperiores tenetur cum. Non.
+		</p>
+		
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam totam dolorum ad cupiditate maiores atque ratione culpa sequi consectetur voluptatibus animi tempora beatae accusantium soluta molestias asperiores tenetur cum. Non.
+		</p>
+		
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam totam dolorum ad cupiditate maiores atque ratione culpa sequi consectetur voluptatibus animi tempora beatae accusantium soluta molestias asperiores tenetur cum. Non.
+		</p>
+	</div>
+	
+</body>
+</html>
